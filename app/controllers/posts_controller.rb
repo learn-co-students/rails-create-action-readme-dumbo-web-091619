@@ -1,15 +1,22 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.all
-  end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+	def index
+		@posts = Post.all
+	end
 
-  def new
-    @post = Post.new
-  end
+	def show
+		@post = Post.find(params[:id])
+	end
 
-  # add create method here
+	def new
+		@post = Post.new
+	end
+
+	def create
+	# byebug
+		Post.create(title: params[:title], description: params[:description])
+
+		redirect_to '/posts'
+	end
+
 end
