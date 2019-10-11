@@ -11,5 +11,9 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def create
+    student = Post.create(title: params[:title], description: params[:description])
+    redirect_to :action => "show", :id => student.id
+  end
   # add create method here
 end
